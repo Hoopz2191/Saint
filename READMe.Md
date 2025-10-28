@@ -1,40 +1,42 @@
-Devoloped by knkwq
+# Saint UI Library
 
-Saint UI Library
+<img src="https://raw.githubusercontent.com/your-repo/Assets/main/logodark.png#gh-dark-mode-only" alt="Saint">
+<img src="https://raw.githubusercontent.com/your-repo/Assets/main/logolight.png#gh-light-mode-only" alt="Made By knkwq">
 
-A modern, dark-themed UI library for Roblox with smooth animations and a clean interface.
+⚡ Features
 
-Features
+· Modern dark theme design
+· Smooth animations and transitions
+· Draggable windows and floating button
+· Multiple UI elements (toggles, buttons, sliders, dropdowns, keybinds, textboxes)
+· Built-in notification system
+· Console/terminal interface
+  
+  
 
-· 🎨 Dark theme with smooth animations
-· 🖱️ Draggable windows and floating button
-· 📱 Responsive design
-· 🎯 Multiple UI elements (buttons, toggles, sliders, dropdowns, etc.)
-· ⌨️ Keybind support
-· 🔔 Notification system
-· 💻 Built-in console/terminal
-
-Installation
+🔌 Installation
 
 ```lua
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Hoopz2191/Saint/refs/heads/main/Saint%20Interface"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/your-repo/main/main.lua"))()
 ```
 
-Basic Usage
+<br/>
 
-Creating a Window
+📜 Usage
+
+Step 1: Create a Window
 
 ```lua
 local Window = Library.new({
     Title = "My Script",
-    Description = "Cool script by me",
-    Keybind = Enum.KeyCode.RightControl, -- Optional keybind to toggle UI
-    Logo = "rbxassetid://18810965406", -- Optional logo
-    Size = UDim2.new(0.1, 445, 0.1, 315) -- Window size
+    Description = "Best script ever",
+    Keybind = Enum.KeyCode.RightControl, -- Optional
+    Logo = "rbxassetid://18810965406", -- Optional
+    Size = UDim2.new(0.1, 445, 0.1, 315) -- Optional
 })
 ```
 
-Adding Tabs
+Step 2: Add Tabs
 
 ```lua
 local MainTab = Window:NewTab({
@@ -42,15 +44,9 @@ local MainTab = Window:NewTab({
     Description = "Main Features",
     Icon = "rbxassetid://7733964640"
 })
-
-local SettingsTab = Window:NewTab({
-    Title = "Settings",
-    Description = "Configuration",
-    Icon = "rbxassetid://7733993211"
-})
 ```
 
-Adding Sections
+Step 3: Add Sections
 
 ```lua
 local CombatSection = MainTab:NewSection({
@@ -58,15 +54,24 @@ local CombatSection = MainTab:NewSection({
     Title = "Combat",
     Icon = "rbxassetid://7733964640"
 })
-
-local MovementSection = MainTab:NewSection({
-    Position = "Right",
-    Title = "Movement",
-    Icon = "rbxassetid://7733993369"
-})
 ```
 
-UI Elements
+Step 4: Add UI Elements
+
+Toggle
+
+```lua
+local MyToggle = CombatSection:NewToggle({
+    Title = "Auto Farm",
+    Default = false,
+    Callback = function(Value)
+        print("Auto Farm:", Value)
+    end
+})
+
+-- Update toggle later
+MyToggle:Value(true)
+```
 
 Button
 
@@ -74,26 +79,9 @@ Button
 CombatSection:NewButton({
     Title = "Kill All",
     Callback = function()
-        print("Killing all players...")
-        -- Your code here
+        print("Button clicked!")
     end
 })
-```
-
-Toggle
-
-```lua
-local AutoFarmToggle = CombatSection:NewToggle({
-    Title = "Auto Farm",
-    Default = false,
-    Callback = function(Value)
-        print("Auto Farm:", Value)
-        -- Your toggle logic here
-    end
-})
-
--- Later update the toggle value
-AutoFarmToggle:Value(true)
 ```
 
 Slider
@@ -114,18 +102,18 @@ CombatSection:NewSlider({
 Dropdown
 
 ```lua
-local WeaponDropdown = CombatSection:NewDropdown({
+local MyDropdown = CombatSection:NewDropdown({
     Title = "Weapon",
-    Data = {"Sword", "Axe", "Bow", "Staff"},
+    Data = {"Sword", "Axe", "Bow"},
     Default = "Sword",
     Callback = function(Value)
-        print("Selected weapon:", Value)
+        print("Selected:", Value)
     end
 })
 
--- Update dropdown options later
-WeaponDropdown:Set({"New", "Weapon", "List"})
-WeaponDropdown:Value("Bow")
+-- Update dropdown later
+MyDropdown:Set({"New", "Weapons"})
+MyDropdown:Value("Bow")
 ```
 
 Keybind
@@ -135,9 +123,7 @@ CombatSection:NewKeybind({
     Title = "Toggle Menu",
     Default = Enum.KeyCode.F,
     Callback = function(Key)
-        print("Keybind pressed:", Key)
-        Window.WindowToggle = not Window.WindowToggle
-        Window.Update()
+        print("Key pressed:", Key)
     end
 })
 ```
@@ -148,9 +134,8 @@ Textbox
 CombatSection:NewTextbox({
     Title = "Player Name",
     Default = "",
-    FileType = ".txt", -- Optional file type display
     Callback = function(Text)
-        print("Searching for:", Text)
+        print("Text entered:", Text)
     end
 })
 ```
@@ -161,22 +146,20 @@ Title (Label)
 CombatSection:NewTitle("Important Features")
 ```
 
-Advanced Features
-
-Notifications
+Step 5: Notifications (Optional)
 
 ```lua
 local Notify = Library.Notification()
 
 Notify:new({
     Title = "Success",
-    Description = "Script loaded successfully!",
+    Description = "Script loaded!",
     Duration = 5,
     Icon = "rbxassetid://7733993369"
 })
 ```
 
-Console/Terminal
+Step 6: Console (Optional)
 
 ```lua
 local Console = Library:Console()
@@ -185,55 +168,40 @@ local Console = Library:Console()
 Console:add("hello", function(args)
     Console:print("Hello World!")
 end)
-
-Console:add("print", function(args)
-    Console:print(table.concat(args, " "))
-end)
 ```
 
-Custom Effects
+<br/>
+
+📋 Full Example
 
 ```lua
--- Add gradient effect to window
-Window.AddEffect(Color3.fromRGB(255, 0, 0)) -- Red effect
-Window.AddEffect(Color3.fromRGB(0, 255, 0)) -- Green effect
-```
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/your-repo/main/main.lua"))()
 
-Complete Example
-
-```lua
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/your-repo/main.lua"))()
-
+-- Create window
 local Window = Library.new({
     Title = "Hack Script",
     Description = "Best script ever",
-    Keybind = Enum.KeyCode.RightControl,
-    Logo = "rbxassetid://18810965406"
+    Keybind = Enum.KeyCode.RightControl
 })
 
--- Main Tab
+-- Main tab
 local MainTab = Window:NewTab({
     Title = "Main",
     Description = "Main Features",
     Icon = "rbxassetid://7733964640"
 })
 
+-- Combat section
 local CombatSection = MainTab:NewSection({
     Position = "Left",
     Title = "Combat",
     Icon = "rbxassetid://7733964640"
 })
 
-local MovementSection = MainTab:NewSection({
-    Position = "Right",
-    Title = "Movement",
-    Icon = "rbxassetid://7733993369"
-})
-
--- Combat Features
+-- Add elements to combat section
 CombatSection:NewTitle("Combat Features")
 
-CombatSection:NewToggle({
+local KillAuraToggle = CombatSection:NewToggle({
     Title = "Kill Aura",
     Default = false,
     Callback = function(Value)
@@ -244,7 +212,7 @@ CombatSection:NewToggle({
 CombatSection:NewButton({
     Title = "Teleport to Boss",
     Callback = function()
-        print("Teleporting to boss...")
+        print("Teleporting...")
     end
 })
 
@@ -255,12 +223,33 @@ CombatSection:NewSlider({
     Default = 1,
     Step = 0.1,
     Callback = function(Value)
-        print("Damage Multiplier:", Value)
+        print("Damage:", Value)
     end
 })
 
--- Movement Features
-MovementSection:NewTitle("Movement Features")
+local WeaponDropdown = CombatSection:NewDropdown({
+    Title = "Weapon",
+    Data = {"Sword", "Axe", "Bow"},
+    Default = "Sword",
+    Callback = function(Value)
+        print("Weapon:", Value)
+    end
+})
+
+CombatSection:NewKeybind({
+    Title = "Fly Toggle",
+    Default = Enum.KeyCode.X,
+    Callback = function(Key)
+        print("Fly key:", Key)
+    end
+})
+
+-- Movement section
+local MovementSection = MainTab:NewSection({
+    Position = "Right",
+    Title = "Movement",
+    Icon = "rbxassetid://7733993369"
+})
 
 MovementSection:NewToggle({
     Title = "Speed Hack",
@@ -270,24 +259,7 @@ MovementSection:NewToggle({
     end
 })
 
-MovementSection:NewKeybind({
-    Title = "Fly Toggle",
-    Default = Enum.KeyCode.X,
-    Callback = function(Key)
-        print("Fly toggled with:", Key)
-    end
-})
-
-MovementSection:NewDropdown({
-    Title = "Teleport Locations",
-    Data = {"Spawn", "Safe Zone", "Boss Arena", "Secret Base"},
-    Default = "Spawn",
-    Callback = function(Value)
-        print("Teleporting to:", Value)
-    end
-})
-
--- Settings Tab
+-- Settings tab
 local SettingsTab = Window:NewTab({
     Title = "Settings",
     Description = "Configuration",
@@ -296,7 +268,7 @@ local SettingsTab = Window:NewTab({
 
 local ConfigSection = SettingsTab:NewSection({
     Position = "Left",
-    Title = "Configuration",
+    Title = "Config",
     Icon = "rbxassetid://7733993211"
 })
 
@@ -305,78 +277,43 @@ ConfigSection:NewButton({
     Callback = function()
         Library.Notification():new({
             Title = "Success",
-            Description = "Configuration saved!",
+            Description = "Config saved!",
             Duration = 3,
             Icon = "rbxassetid://7733993369"
         })
     end
 })
 
-ConfigSection:NewTextbox({
-    Title = "Config Name",
-    Default = "MyConfig",
-    Callback = function(Text)
-        print("Config name:", Text)
-    end
-})
-
--- Show notification when script loads
+-- Show welcome notification
 task.spawn(function()
     task.wait(1)
     Library.Notification():new({
-        Title = "Script Loaded",
-        Description = "Hack script successfully loaded!",
+        Title = "Welcome",
+        Description = "Script loaded successfully!",
         Duration = 5,
         Icon = "rbxassetid://7733964640"
     })
 end)
 ```
 
-API Reference
+🎨 Customization
 
-Window Methods
+· Use Window.AddEffect(Color3.fromRGB(255, 0, 0)) for gradient effects
+· Drag the floating button to reposition
+· Drag the window when open to move it
+· Use keybinds to toggle UI visibility
 
-· Window:NewTab(config) - Create new tab
-· Window.AddEffect(color) - Add gradient effect
-· Window.WindowToggle - Window visibility state
-· Window.Update() - Force UI update
+📝 Notes
 
-Tab Methods
+· All callbacks are executed in a separate thread
+· UI elements can be dynamically updated
+· Notifications auto-dismiss after duration
+· Console supports custom commands
 
-· Tab:NewSection(config) - Create new section
+<br/>
 
-Section Methods
+Credits
 
-· Section:NewButton(config) - Create button
-· Section:NewToggle(config) - Create toggle
-· Section:NewSlider(config) - Create slider
-· Section:NewDropdown(config) - Create dropdown
-· Section:NewKeybind(config) - Create keybind
-· Section:NewTextbox(config) - Create textbox
-· Section:NewTitle(text) - Create title/label
-
-Toggle Methods
-
-· Toggle:Value(newValue) - Update toggle state
-· Toggle:Visible(visible) - Show/hide toggle
-
-Dropdown Methods
-
-· Dropdown:Value(value) - Set dropdown value
-· Dropdown:Set(data) - Update dropdown options
-· Dropdown:Clear() - Clear dropdown options
-· Dropdown:Open() - Open dropdown
-· Dropdown:Close() - Close dropdown
-
-Tips
-
-· Use Position = "Left" or "Right" to organize sections
-· Set appropriate Step values for sliders
-· Use notifications for user feedback
-· The floating button can be dragged to reposition
-· Window is draggable when open
-· Keybinds work even when UI is closed
-
-License
-
-MIT License - Feel free to use in your projects!
+· Inspired by modern UI libraries
+· Smooth animations and transitions
+· Dark theme design
