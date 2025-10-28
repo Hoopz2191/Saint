@@ -4,14 +4,14 @@
 <img src="https://raw.githubusercontent.com/your-repo/Assets/main/logolight.png#gh-light-mode-only" alt="Made By knkwq">
 
 ⚡ Features
-
-· Modern dark theme design
+**
+ Modern dark theme design
 · Smooth animations and transitions
 · Draggable windows and floating button
 · Multiple UI elements (toggles, buttons, sliders, dropdowns, keybinds, textboxes)
 · Built-in notification system
 · Console/terminal interface
-  
+  **
   
 
 🔌 Installation
