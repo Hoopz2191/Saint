@@ -1,20 +1,18 @@
 # Saint UI Library
 
 <img src="https://raw.githubusercontent.com/your-repo/Assets/main/logodark.png#gh-dark-mode-only" alt="Saint">
-<img src="https://raw.githubusercontent.com/your-repo/Assets/main/logolight.png#gh-light-mode-only" alt="Made By knkwq">
 
-⚡ Features
+# ⚡ Features
 **
  Modern dark theme design
 · Smooth animations and transitions
 · Draggable windows and floating button
 · Multiple UI elements (toggles, buttons, sliders, dropdowns, keybinds, textboxes)
 · Built-in notification system
-· Console/terminal interface
-  **
+· Console/terminal interface**
   
 
-🔌 Installation
+# 🔌 Installation
 
 ```lua
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/your-repo/main/main.lua"))()
@@ -22,9 +20,9 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/your-
 
 <br/>
 
-📜 Usage
+# 📜 Usage
 
-Step 1: Create a Window
+**Step 1: Create a Window**
 
 ```lua
 local Window = Library.new({
@@ -36,7 +34,7 @@ local Window = Library.new({
 })
 ```
 
-Step 2: Add Tabs
+**Step 2: Add Tabs**
 
 ```lua
 local MainTab = Window:NewTab({
@@ -46,7 +44,7 @@ local MainTab = Window:NewTab({
 })
 ```
 
-Step 3: Add Sections
+**Step 3: Add Sections**
 
 ```lua
 local CombatSection = MainTab:NewSection({
@@ -56,9 +54,9 @@ local CombatSection = MainTab:NewSection({
 })
 ```
 
-Step 4: Add UI Elements
+**Step 4: Add UI Elements**
 
-Toggle
+**Toggle**
 
 ```lua
 local MyToggle = CombatSection:NewToggle({
